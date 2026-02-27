@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: "2026-02-16T02:30:24Z"
+  generation: 3540
+  name: istio-istiod
+  namespace: argocd
+  resourceVersion: "7882529"
+  uid: 42a2d658-fd9c-4a19-9b9a-62c1683f56fd
+spec:
+  destination:
+    namespace: istio-system
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: istiod
+    helm:
+      valueFiles:
+      - values.yaml
+    repoURL: https://istio-release.storage.googleapis.com/charts
+    targetRevision: 1.28.3
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true

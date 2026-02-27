@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: "2026-02-16T02:46:10Z"
+  generation: 5627
+  name: knative-manifests
+  namespace: argocd
+  resourceVersion: "7881901"
+  uid: 32b73ff3-1416-44ce-a9e1-28dc4496c608
+spec:
+  destination:
+    namespace: knative-serving
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: .
+    repoURL: https://github.com/rforberger/knative-manifests.git
+    targetRevision: HEAD

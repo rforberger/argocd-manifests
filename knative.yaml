@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: "2026-02-16T02:35:57Z"
+  generation: 3530
+  name: knative
+  namespace: argocd
+  resourceVersion: "7882362"
+  uid: 55f7522a-067d-4fcd-ac58-2cdcbb86cb54
+spec:
+  destination:
+    namespace: knative-operator
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: knative-operator
+    helm:
+      valueFiles:
+      - values.yaml
+    repoURL: https://knative.github.io/operator
+    targetRevision: v1.21.0
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
