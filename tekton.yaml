@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    chart: cdf/tekton-pipeline
+    chart: tekton-pipeline
     helm:
       valueFiles:
       - values.yaml
